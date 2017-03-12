@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_order"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="訂單" />
+        <item
+            android:id="@+id/nav_manufacture"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="製令單" />
+        <item
+            android:id="@+id/nav_storage"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="倉庫管理" />
+        <item
+            android:id="@+id/nav_human"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="人事管理" />
+    </group>
+
+    <item android:title="門市管理">
+        <menu>
+            <item
+                android:id="@+id/nav_shop_order"
+                android:icon="@drawable/ic_menu_share"
+                android:title="配貨管理" />
+            <item
+                android:id="@+id/nav_shop_storage"
+                android:icon="@drawable/ic_menu_send"
+                android:title="庫存管理" />
+            <item
+                android:id="@+id/nav_shop_human"
+                android:icon="@drawable/ic_menu_send"
+                android:title="人事管理" />
+        </menu>
+    </item>
+
+</menu>
