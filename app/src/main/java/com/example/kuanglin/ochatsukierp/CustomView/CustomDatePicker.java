@@ -20,6 +20,7 @@ import com.example.kuanglin.ochatsukierp.R;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  * Created by KuangLin on 2017/3/17.
@@ -30,7 +31,7 @@ public class CustomDatePicker extends RelativeLayout implements View.OnClickList
     TextView mTextDate;
     ImageButton mButtonMinus;
     ImageButton mButtonAdd;
-    Calendar today = Calendar.getInstance();
+    Calendar todayDate = Calendar.getInstance();
     String changedDate;
     private String date = "106/12/31";
 
@@ -114,26 +115,24 @@ public class CustomDatePicker extends RelativeLayout implements View.OnClickList
     }
 
 
-
-
     /**
      * -----------------------------------------------------------------------------
      * private Methods
      * -----------------------------------------------------------------------------
      */
     private void getDate(){
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-        date = sdf.format(today.getTime());
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd", Locale.TAIWAN);
+        date = sdf.format(todayDate.getTime());
     }
 
     private void changeDate(int change){
-        today.add(Calendar.DATE, change);//月份+2
+        todayDate.add(Calendar.DATE, change);
 
     }
 
     private void updateDateText(){
-        Date tdt = today.getTime();//取得加減過後的Date
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+        Date tdt = todayDate.getTime();//取得加減過後的Date
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd", Locale.TAIWAN);
         changedDate = sdf.format(tdt);
         mTextDate.setText(changedDate);
     }
@@ -156,9 +155,9 @@ public class CustomDatePicker extends RelativeLayout implements View.OnClickList
             updateDateText();
         }
         else if( id == mTextDate.getId()) {
-            new DatePickerDialog(view.getContext(), dateSetListener, today
-                    .get(Calendar.YEAR), today.get(Calendar.MONTH),
-                    today.get(Calendar.DAY_OF_MONTH)).show();
+            new DatePickerDialog(view.getContext(), dateSetListener, todayDate
+                    .get(Calendar.YEAR), todayDate.get(Calendar.MONTH),
+                    todayDate.get(Calendar.DAY_OF_MONTH)).show();
         }
     }
 
@@ -169,9 +168,9 @@ public class CustomDatePicker extends RelativeLayout implements View.OnClickList
         public void onDateSet(DatePicker view, int year, int monthOfYear,
                               int dayOfMonth) {
             // TODO Auto-generated method stub
-            today.set(Calendar.YEAR, year);
-            today.set(Calendar.MONTH, monthOfYear);
-            today.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+            todayDate.set(Calendar.YEAR, year);
+            todayDate.set(Calendar.MONTH, monthOfYear);
+            todayDate.set(Calendar.DAY_OF_MONTH, dayOfMonth);
             updateDateText();
         }
     };
