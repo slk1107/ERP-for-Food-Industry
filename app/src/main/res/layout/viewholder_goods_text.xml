@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/order_group_product_header"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/order_product"
+    android:layout_marginLeft="@dimen/min_margin"
+    android:layout_marginRight="@dimen/min_margin"
+    android:layout_marginTop="@dimen/min_margin">
+
+        <TextView
+            android:id="@+id/order_product_list_name"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_weight="3"
+            android:gravity="left|center_vertical"
+            android:text="@string/product_example"
+            android:textColor="@color/black"
+            android:textSize="@dimen/date_text_size" />
+
+        <TextView
+            android:id="@+id/order_product_list_Specification"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_weight="2"
+            android:gravity="right|center_vertical"
+            android:paddingRight="@dimen/min_margin"
+            android:text="@string/spec_example"
+            android:textColor="@color/black"
+            android:textSize="@dimen/date_text_size" />
+
+        <TextView
+            android:id="@+id/order_product_list_amount"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:gravity="center|right"
+            android:text="@string/price_example"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size" />
+
+        <TextView
+            android:id="@+id/order_product_list_prise"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:gravity="center|right"
+            android:text="@string/price_example"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size" />
+
+</LinearLayout>
