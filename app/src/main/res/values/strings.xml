@@ -12,4 +12,9 @@
     <string name="amount">數量</string>
     <string name="specification">規格</string>
     <string name="product_name">產品名稱</string>
+    <string name="price_example">999</string>
+    <string name="spec_example">1000ml/瓶</string>
+    <string name="product_example">有機無糖豆漿(大)</string>
+    <string name="enter">確定</string>
+    <string name="cancel">取消</string>
 </resources>
