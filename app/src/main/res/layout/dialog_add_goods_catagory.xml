@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/text_dialog_add_catag"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginLeft="@dimen/fab_margin"
+        android:layout_marginTop="@dimen/fab_margin"
+        android:text="新增產品類別："
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/text_size"/>
+
+    <EditText
+        android:id="@+id/edit_dialog_add_catag"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@+id/text_dialog_add_catag"
+        android:hint="輸入類別"
+        android:paddingLeft="@dimen/mid_margin"
+        android:layout_marginLeft="@dimen/fab_margin"
+        android:layout_marginRight="@dimen/fab_margin" />
+
+    <Button
+        android:id="@+id/button_dialog_add_catag_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/edit_dialog_add_catag"
+        android:layout_marginRight="@dimen/fab_margin"
+        android:background="@color/transparent"
+        android:text="@string/enter"
+        android:textColor="@color/colorPrimaryDark" />
+
+    <Button
+        android:id="@+id/button_dialog_add_catag_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_dialog_add_catag"
+        android:layout_marginRight="@dimen/fab_margin"
+        android:layout_toLeftOf="@+id/button_dialog_add_catag_ok"
+        android:background="@color/transparent"
+        android:text="@string/cancel"
+        android:textColor="@color/colorPrimaryDark" />
+</RelativeLayout>

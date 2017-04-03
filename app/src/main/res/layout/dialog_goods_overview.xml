@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <!--<include-->
+        <!--android:id="@+id/order_include_pager"-->
+        <!--layout="@layout/pager"-->
+        <!--android:layout_above="@+id/order_group_insert_product"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent" />-->
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/pager_tab_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue_tab"
+        app:tabTextColor="@color/white"
+        app:tabMode="scrollable">
+
+    </android.support.design.widget.TabLayout>
+
+    <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/view_pager_test"
+        android:layout_above="@+id/order_group_insert_product"
+        android:layout_below="@+id/pager_tab_test"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+    </android.support.v4.view.ViewPager>
+
+
+    <LinearLayout
+        android:id="@+id/order_group_insert_product"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/order_button_add_product"
+        android:layout_marginLeft="@dimen/min_margin"
+        android:layout_marginRight="@dimen/min_margin"
+        android:layout_marginTop="@dimen/min_margin">
+
+        <EditText
+            android:id="@+id/order_textview_input_product_name"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_marginRight="@dimen/min_margin"
+            android:layout_weight="3"
+            android:background="@drawable/edit_background_selector"
+            android:gravity="center"
+            android:hint="@string/product_name"
+            android:textSize="@dimen/text_size" />
+
+        <com.example.kuanglin.ochatsukierp.CustomView.CustomAutoComplete
+            android:id="@+id/order_auto_textview_input_product_Specification"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_marginRight="@dimen/min_margin"
+            android:layout_weight="2"
+            android:background="@drawable/edit_background_selector"
+            android:gravity="center"
+            android:hint="@string/specification"
+            android:inputType="text"
+            android:textSize="@dimen/text_size" />
+
+        <com.example.kuanglin.ochatsukierp.CustomView.CustomAutoComplete
+            android:id="@+id/order_auto_textview_input_product_amount"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_marginRight="@dimen/min_margin"
+            android:layout_weight="1"
+            android:background="@drawable/edit_background_selector"
+            android:gravity="center"
+            android:hint="@string/amount"
+            android:inputType="number"
+            android:textSize="@dimen/text_size" />
+
+        <com.example.kuanglin.ochatsukierp.CustomView.CustomAutoComplete
+
+            android:id="@+id/order_auto_textview_input_product_price"
+            android:layout_width="0dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:background="@drawable/edit_background_selector"
+            android:gravity="center"
+            android:hint="@string/unit_price"
+            android:inputType="number"
+            android:textSize="@dimen/text_size" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/order_button_add_product"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/order_group_insert_product"
+        android:layout_marginTop="@dimen/mid_margin"
+        android:background="@drawable/button_background_selector"
+        android:minHeight="32dp"
+        android:minWidth="48dp"
+        android:text="@string/add_product"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:layout_alignParentBottom="true"/>
+</RelativeLayout>
