@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/fragment_order_group"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -139,6 +138,19 @@
             android:paddingLeft="@dimen/text_padding"
             android:textSize="@dimen/text_size" />
 
+        <Button
+            android:id="@+id/button_pop_overview"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:text="加入產品"
+            android:textColor="@drawable/green_blue_selector"
+            android:minHeight="0dp"
+            android:padding="0dp"
+            android:textSize="16sp"
+            android:layout_toRightOf="@+id/order_product"
+            android:layout_alignBottom="@+id/order_product"
+            android:background="@drawable/bottom_line_background_selector"/>
+
         <LinearLayout
             android:id="@+id/order_group_product_header"
             android:layout_width="match_parent"
@@ -194,96 +206,19 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/order_product_list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_below="@id/order_group_product_header"
             android:layout_marginLeft="@dimen/min_margin"
             android:layout_marginRight="@dimen/min_margin">
 
         </android.support.v7.widget.RecyclerView>
 
-        <LinearLayout
-            android:id="@+id/order_group_insert_product"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/order_product_list"
-            android:layout_marginLeft="@dimen/min_margin"
-            android:layout_marginRight="@dimen/min_margin"
-            android:layout_marginTop="@dimen/min_margin">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="460dp"
+        android:layout_below="@id/order_product_list"
+        android:id="@+id/test"/>
 
-            <EditText
-                android:id="@+id/order_auto_textview_product_name"
-                android:layout_width="0dp"
-                android:layout_height="32dp"
-                android:layout_marginRight="@dimen/min_margin"
-                android:layout_weight="3"
-                android:background="@drawable/edit_background_selector"
-                android:gravity="center"
-                android:hint="@string/product_name"
-                android:textSize="@dimen/text_size" />
-
-            <AutoCompleteTextView
-                android:id="@+id/order_auto_textview_product_Specification"
-                android:layout_width="0dp"
-                android:layout_height="32dp"
-                android:layout_marginRight="@dimen/min_margin"
-                android:layout_weight="2"
-                android:background="@drawable/edit_background_selector"
-                android:gravity="center"
-
-                android:hint="@string/specification"
-                android:textSize="@dimen/text_size" />
-
-            <AutoCompleteTextView
-                android:id="@+id/order_auto_textview_product_amount"
-                android:layout_width="0dp"
-                android:layout_height="32dp"
-                android:layout_marginRight="@dimen/min_margin"
-                android:layout_weight="1"
-                android:background="@drawable/edit_background_selector"
-                android:gravity="center"
-
-                android:hint="@string/amount"
-                android:textSize="@dimen/text_size" />
-
-            <AutoCompleteTextView
-                android:id="@+id/order_auto_textview_product_prise"
-                android:layout_width="0dp"
-                android:layout_height="32dp"
-                android:layout_weight="1"
-                android:background="@drawable/edit_background_selector"
-                android:gravity="center"
-                android:hint="@string/unit_price"
-                android:textSize="@dimen/text_size" />
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/order_button_add_product"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignRight="@+id/order_group_insert_product"
-            android:layout_below="@+id/order_group_insert_product"
-            android:layout_marginTop="@dimen/mid_margin"
-            android:background="@drawable/button_background_selector"
-            android:minHeight="32dp"
-            android:minWidth="48dp"
-            android:text="@string/add_product"
-            android:textColor="@color/white"
-            android:textSize="16sp" />
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/order_button_add_product">
-
-        </FrameLayout>
-
-        <FrameLayout
-            android:id="@+id/order_frame_date_picker"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:visibility="gone"/>
 
     </RelativeLayout>
 
