@@ -1,4 +1,4 @@
-package com.example.kuanglin.ochatsukierp.Adapter;
+package com.example.kuanglin.ochatsukierp.CustomView.ViewPager;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

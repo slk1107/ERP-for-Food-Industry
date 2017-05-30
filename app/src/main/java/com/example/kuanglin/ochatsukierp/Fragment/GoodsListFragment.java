@@ -9,9 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.kuanglin.ochatsukierp.Adapter.OrderItemRecyclerAdapter;
-import com.example.kuanglin.ochatsukierp.CustomView.ViewHolders.GoodsEditHolder;
-import com.example.kuanglin.ochatsukierp.CustomView.ViewHolders.HolderPresenter;
+import com.example.kuanglin.ochatsukierp.CustomView.RecyclerView.OrderItemRecyclerAdapter;
+import com.example.kuanglin.ochatsukierp.CustomView.RecyclerView.ViewHolders.GoodsEditHolder;
+import com.example.kuanglin.ochatsukierp.CustomView.RecyclerView.ViewHolders.HolderPresenter;
 import com.example.kuanglin.ochatsukierp.Items.ProductInfo;
 import com.example.kuanglin.ochatsukierp.R;
 import com.example.kuanglin.ochatsukierp.Util.Tools;

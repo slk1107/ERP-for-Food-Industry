@@ -14,13 +14,13 @@ import android.widget.EditText;
 
 public class Tools {
 
-    public static void hideSoftKeyboard(Activity activity) {
+    public static void hideSoftKeyboard(Activity activity, View view) {
         InputMethodManager inputMethodManager =
                 (InputMethodManager) activity.getSystemService(
                         Context.INPUT_METHOD_SERVICE);
         if (activity.getCurrentFocus() != null) {
             inputMethodManager.hideSoftInputFromWindow(
-                    activity.getCurrentFocus().getWindowToken(), 0);
+                    view.getWindowToken(), 0);
         }
     }
 
@@ -40,7 +40,7 @@ public class Tools {
             view.setOnTouchListener(new View.OnTouchListener() {
 
                 public boolean onTouch(View v, MotionEvent event) {
-                    hideSoftKeyboard(activity);
+                    hideSoftKeyboard(activity,v);
                     return false;
                 }
 

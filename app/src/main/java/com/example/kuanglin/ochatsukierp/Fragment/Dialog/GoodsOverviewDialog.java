@@ -9,13 +9,14 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.kuanglin.ochatsukierp.Adapter.OchaPagerAdapter;
 import com.example.kuanglin.ochatsukierp.CustomView.CustomAutoComplete;
+import com.example.kuanglin.ochatsukierp.CustomView.ViewPager.OchaPagerAdapter;
 import com.example.kuanglin.ochatsukierp.Fragment.GoodsListFragment;
 import com.example.kuanglin.ochatsukierp.Items.ProductInfo;
 import com.example.kuanglin.ochatsukierp.Items.Specification;
@@ -39,7 +40,9 @@ public class GoodsOverviewDialog extends DialogFragment implements View.OnClickL
     ArrayList<Integer> amountList = new ArrayList<>();
     ArrayList<Integer> priceList = new ArrayList<>();
 
+
     ArrayList<Fragment> goodsListFragments = new ArrayList<>();
+
 
     public static GoodsOverviewDialog newInstance(){
         return new GoodsOverviewDialog();
@@ -58,9 +61,13 @@ public class GoodsOverviewDialog extends DialogFragment implements View.OnClickL
         View view = inflater.inflate(R.layout.dialog_goods_overview,container,false);
 
         initView(view);
-
-
         return view;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        getDialog().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     }
 
     private void initView(View view){
@@ -79,14 +86,15 @@ public class GoodsOverviewDialog extends DialogFragment implements View.OnClickL
         mBtAddProduct.setOnClickListener(this);
 
         if (goodsListFragments.size() > 0) {
-            ViewPager mViewPager = (ViewPager) view.findViewById(R.id.view_pager_test);
+            ViewPager mViewPager = (ViewPager) view.findViewById(R.id.view_pager);
             OchaPagerAdapter pagerAdapter = new OchaPagerAdapter(
                     getChildFragmentManager(), goodsListFragments);
-//                    getActivity().getSupportFragmentManager(), goodsListFragments);
             mViewPager.setAdapter(pagerAdapter);
-            TabLayout tabLayout = (TabLayout) view.findViewById(R.id.pager_tab_test);
+            TabLayout tabLayout = (TabLayout) view.findViewById(R.id.pager_tab);
             tabLayout.setupWithViewPager(mViewPager);
         }
+
+        Tools.hideKeyboardWhenTouch(view,getActivity());
     }
 
     private ArrayList<Fragment> getList(){

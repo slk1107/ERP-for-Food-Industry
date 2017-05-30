@@ -1,4 +1,4 @@
-package com.example.kuanglin.ochatsukierp.CustomView.ViewHolders;
+package com.example.kuanglin.ochatsukierp.CustomView.RecyclerView.ViewHolders;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -13,6 +13,7 @@ import com.example.kuanglin.ochatsukierp.R;
 
 public class GoodsTextHolder extends RecyclerView.ViewHolder {
 
+    private View rootView;
     private TextView mTextName;
     private TextView mTextSpec;
     private TextView mTextAmount;
@@ -20,13 +21,15 @@ public class GoodsTextHolder extends RecyclerView.ViewHolder {
 
     public GoodsTextHolder(View itemView) {
         super(itemView);
-        mTextName = (TextView) itemView.findViewById(R.id.order_product_list_name);
-        mTextSpec = (TextView) itemView.findViewById(R.id.order_product_list_Specification);
-        mTextAmount = (TextView) itemView.findViewById(R.id.order_product_list_amount);
-        mTextPrice = (TextView) itemView.findViewById(R.id.order_product_list_prise);
+        rootView = itemView;
+        mTextName = (TextView) rootView.findViewById(R.id.order_product_list_name);
+        mTextSpec = (TextView) rootView.findViewById(R.id.order_product_list_Specification);
+        mTextAmount = (TextView) rootView.findViewById(R.id.order_product_list_amount);
+        mTextPrice = (TextView) rootView.findViewById(R.id.order_product_list_prise);
     }
 
-    public void setView(ProductInfo product) {
+    public void setView(ProductInfo product, View.OnClickListener onItemClick) {
+        rootView.setOnClickListener(onItemClick);
         mTextName.setText(product.getName());
         mTextSpec.setText(product.getSpec().toString());
         mTextAmount.setText(String.valueOf(product.getAmount()));

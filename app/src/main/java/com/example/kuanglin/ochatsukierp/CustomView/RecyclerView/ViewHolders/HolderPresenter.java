@@ -1,4 +1,4 @@
-package com.example.kuanglin.ochatsukierp.CustomView.ViewHolders;
+package com.example.kuanglin.ochatsukierp.CustomView.RecyclerView.ViewHolders;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

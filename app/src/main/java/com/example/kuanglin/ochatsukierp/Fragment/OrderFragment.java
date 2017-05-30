@@ -1,5 +1,6 @@
 package com.example.kuanglin.ochatsukierp.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
@@ -11,9 +12,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.example.kuanglin.ochatsukierp.Adapter.OrderItemRecyclerAdapter;
-import com.example.kuanglin.ochatsukierp.CustomView.ViewHolders.GoodsTextHolder;
-import com.example.kuanglin.ochatsukierp.CustomView.ViewHolders.HolderPresenter;
+import com.example.kuanglin.ochatsukierp.CustomView.RecyclerView.OrderItemRecyclerAdapter;
+import com.example.kuanglin.ochatsukierp.CustomView.RecyclerView.ViewHolders.GoodsTextHolder;
+import com.example.kuanglin.ochatsukierp.CustomView.RecyclerView.ViewHolders.HolderPresenter;
+import com.example.kuanglin.ochatsukierp.Fragment.Dialog.EditGoodDialog;
 import com.example.kuanglin.ochatsukierp.Fragment.Dialog.GoodsOverviewDialog;
 import com.example.kuanglin.ochatsukierp.Items.ProductInfo;
 import com.example.kuanglin.ochatsukierp.R;
@@ -24,8 +26,6 @@ import com.example.kuanglin.ochatsukierp.Util.Tools;
  */
 
 public class OrderFragment extends Fragment implements View.OnClickListener, View.OnLongClickListener, HolderPresenter {
-
-
 
 
     public static OrderFragment newInstance() {
@@ -51,7 +51,6 @@ public class OrderFragment extends Fragment implements View.OnClickListener, Vie
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.order_product_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(new OrderItemRecyclerAdapter(R.layout.viewholder_goods_text, this));
-
         Button mBtPopOverView = (Button) view.findViewById(R.id.button_pop_overview);
         mBtPopOverView.setOnClickListener(this);
 
@@ -59,12 +58,10 @@ public class OrderFragment extends Fragment implements View.OnClickListener, Vie
     }
 
 
-
     @Override
     public void onClick(View view) {
         DialogFragment overviewFragment = GoodsOverviewDialog.newInstance();
-//        getActivity().getSupportFragmentManager().beginTransaction().add(R.id.test,overviewFragment).commit();
-        overviewFragment.show(getActivity().getSupportFragmentManager(),"overview");
+        overviewFragment.show(getActivity().getSupportFragmentManager(), "overview");
     }
 
     @Override
@@ -79,6 +76,26 @@ public class OrderFragment extends Fragment implements View.OnClickListener, Vie
 
     @Override
     public void setHolderView(RecyclerView.ViewHolder holder, Object param) {
-        ((GoodsTextHolder) holder).setView((ProductInfo) param);
+        final ProductInfo selectProduct = (ProductInfo) param;
+
+        View.OnClickListener onItemClick = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DialogFragment editGood = EditGoodDialog.newInstance(selectProduct);
+                editGood.setTargetFragment(OrderFragment.this, 0);
+                editGood.show(getActivity().getSupportFragmentManager(), "editGood");
+            }
+        };
+        ((GoodsTextHolder) holder).setView(selectProduct, onItemClick);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 0) {
+            ProductInfo editProduct = (ProductInfo) data.getSerializableExtra(
+                    "editProduct");
+
+        }
     }
 }

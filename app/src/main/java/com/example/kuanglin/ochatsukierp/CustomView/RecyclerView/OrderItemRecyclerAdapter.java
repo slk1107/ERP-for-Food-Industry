@@ -1,11 +1,11 @@
-package com.example.kuanglin.ochatsukierp.Adapter;
+package com.example.kuanglin.ochatsukierp.CustomView.RecyclerView;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.kuanglin.ochatsukierp.CustomView.ViewHolders.HolderPresenter;
+import com.example.kuanglin.ochatsukierp.CustomView.RecyclerView.ViewHolders.HolderPresenter;
 import com.example.kuanglin.ochatsukierp.Items.ProductInfo;
 import com.example.kuanglin.ochatsukierp.Items.Specification;
 
@@ -22,7 +22,7 @@ public class OrderItemRecyclerAdapter extends RecyclerView.Adapter {
     private HolderPresenter hp;
 
 
-    public OrderItemRecyclerAdapter(int holderId, HolderPresenter hp ){
+    public <T> OrderItemRecyclerAdapter(int holderId, HolderPresenter hp, ArrayList<T> list ){
 
         this.holderId = holderId;
         this.hp = hp;
@@ -51,7 +51,7 @@ public class OrderItemRecyclerAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        hp.setHolderView(holder, productList.get(position));
+        hp.setHolderView(holder,productList.get(position));
     }
 
     @Override

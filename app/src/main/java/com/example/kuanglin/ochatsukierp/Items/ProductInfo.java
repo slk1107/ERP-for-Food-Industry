@@ -1,10 +1,12 @@
 package com.example.kuanglin.ochatsukierp.Items;
 
+import java.io.Serializable;
+
 /**
  * Created by KuangLin on 2017/3/19.
  */
 
-public class ProductInfo {
+public class ProductInfo implements Serializable{
     private String name;
     private Specification specification;
     private int amount;
